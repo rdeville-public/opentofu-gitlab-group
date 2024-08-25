@@ -40,4 +40,12 @@ repos:
     - --args=-recursive
     - --args=-diff
   - id: tofu_validate
+- repo: https://github.com/terraform-docs/terraform-docs
+  rev: v0.18.0
+  hooks:
+  - id: terraform-docs-go
+    args:
+    - ./
+    stages:
+    - pre-push
 # END DOTGIT-SYNC BLOCK MANAGED YAML_MERGED
