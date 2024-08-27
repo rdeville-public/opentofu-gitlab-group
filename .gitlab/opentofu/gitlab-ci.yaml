@@ -13,7 +13,7 @@ OpenTofu Validate:
   script:
   - tofu validate
   rules:
-  - if: $CI_PIPELINE_SOURCE == "pipeline" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  - if: $CI_PIPELINE_SOURCE =~ /(parent_pipeline|pipeline)/
     when: never
   - when: always
 OpenTofu Documentation:
@@ -36,7 +36,7 @@ OpenTofu Documentation:
       exit 1
     fi
   rules:
-  - if: $CI_PIPELINE_SOURCE == "pipeline" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  - if: $CI_PIPELINE_SOURCE =~ /(parent_pipeline|pipeline)/
     when: never
   - when: always
 # END DOTGIT-SYNC BLOCK MANAGED YAML_MERGED
