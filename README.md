@@ -81,6 +81,10 @@ module "gitlab_group" {
 <!-- BEGIN TF-DOCS -->
 ## ⚙️ Module Content
 
+<details><summary>Click to reveal</summary>
+
+### Table of Content
+
 * [Requirements](#requirements)
 * [Resources](#resources)
 * [Inputs](#inputs)
@@ -908,6 +912,8 @@ token configuration with following structure:
   The generated group ID
 * `group_name`:
   The group name
+
+</details>
 
 <!-- END TF-DOCS -->
 <!-- END DOTGIT-SYNC BLOCK EXCLUDED CUSTOM_README -->
