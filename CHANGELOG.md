@@ -1,6 +1,21 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.1.1 (2024-09-09)
+
+### 🩹 Patch
+
+  * ⬆️ Update templated files from dotgit-sync (!5) by Romain Deville ([`d37b697`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/d37b69773ee41333e8c313ffea8724a1130df648))
+  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`8a1fe27`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/8a1fe270ee47e522dcde18586e3c3218ed5d41c5))
+
+### 🔊 Others
+
+  * 👷 Update Gitlab CI from DGS template (!4) by Romain Deville ([`8e9803b`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/8e9803b1a25c0fca623e89500273955134871ec7))
+  * 👷 Update Gitlab CI from DGS template by Romain Deville ([`6e14cde`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/6e14cde3ac0378cb143b8588f6954959c6a6c5ed)) 🔏
+  * 💚 Fix CI from DGS Template (!3) by Romain Deville ([`6bda518`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/6bda5182dcc6a77f85656f8459ec2482bd8a11f7))
+  * 💚 Fix CI from DGS Template by Romain Deville ([`9e4f674`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/9e4f6741b2225afb9eb1c2047407cf1908d2f882)) 🔏
+  * 📝 Update README from tf-docs by Romain Deville ([`f247c87`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/f247c87454a0e7f7efc79b03a278c77d59fcf378)) 🔏
+
 ## v0.1.0 (2024-08-25)
 
 ### ✨ Minor
@@ -17,6 +32,7 @@
 
   * 👷 Update Gitlab CI from DGS by Romain Deville ([`6aa94ae`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/6aa94ae9f860024accc0bc413078131dfc256945)) 🔏
   * 📝 Update README with Terraform Docs by Romain Deville ([`5446b89`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/5446b897947c020a58026d1dea4801122f8623ef)) 🔏
+  * 🔖 v0.1.0 (NO-CI) by Python Semantic Release [bot] ([`9229574`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/92295743da1fb1241bc153f2d0fbe510e4ae841e))
   * 🔨 Update devbox json and lock from DGS by Romain Deville ([`1dd135f`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/1dd135f390aa058e8f9a2f738c946909df7a4208)) 🔏
   * 🔨 Update pre-commit-config from DGS by Romain Deville ([`c077914`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/c077914bbc727daa419c3f6db7ba47bfdd561e42)) 🔏
   * 🙈 Add terraform.lock.hcl to gitignore by Romain Deville ([`2e94ca6`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/2e94ca66e33c2340a76c700b4c14dcd42963ec6d)) 🔏
@@ -30,7 +46,6 @@
   * 🔧 Add commitlint config from DGS template by Romain Deville ([`74e50ae`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/74e50ae38174d1a44b987ddadfc18496799b5481)) 🔏
   * 🔧 Add cspell configuration from DGS template by Romain Deville ([`142d669`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/142d6698bab795582f2b755b8983afd9d9fcdfb3)) 🔏
   * 🔧 Add editorconfig from DGS template by Romain Deville ([`10f824a`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/10f824aa5783e9e97aaf346d1aa191c6c370bc82)) 🔏
-  * 🔧 Add dotgit sync configuration by Romain Deville ([`fa0cac5`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/fa0cac5ec2b855f0ccb6dfffcd95f7508b80ef16)) 🔏
 
 ### 🔊 Others
 
