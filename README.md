@@ -40,36 +40,111 @@ OpenTofu modules allowing to manage gitlab groups configuration.
 <!-- BEGIN DOTGIT-SYNC BLOCK EXCLUDED CUSTOM_README -->
 ## 🚀 Usage
 
-### Minimal usage
+### Manage Group with all default settings
 
 ```hcl
 module "gitlab_group" {
-  source = "url-to-module?ref=main"
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
 
-  group_path = "group-name"
-  group_name = "Group Name"
+  # Required Variables
+  path        = "group-name"
+  name        = "Group Name"
+  description = "Group Description"
 }
 ```
 
-### Minimal usage of all resource
+### Manage Group with all settings
 
 ```hcl
 module "gitlab_group" {
-  source = "url-to-module?ref=main"
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
 
-  group_path = "group-name"
-  group_name = "Group Name"
-  group_labels = {
+  # Required Variables
+  settings_path        = "group-name"
+  settings_name        = "Group Name"
+  settings_description = "Group Description"
+
+  # Default variables
+  settings_parent_id           = null
+  settings_auto_devops_enabled = false
+  settings_avatar              = null
+
+  settings_default_branch_protection         = 4
+  settings_emails_enabled                    = false
+  settings_ip_restriction_ranges             = null
+  settings_lfs_enabled                       = false
+  settings_membership_lock                   = true
+  settings_mentions_disabled                 = true
+  settings_permanently_remove_on_delete      = false
+  settings_prevent_forking_outside_group     = false
+  settings_project_creation_level            = "noone"
+  settings_request_access_enabled            = false
+  settings_require_two_factor_authentication = true
+  settings_share_with_group_lock             = true
+  settings_shared_runners_setting            = "disabled_and_unoverridable"
+  settings_subgroup_creation_level           = "owner"
+  settings_two_factor_grace_period           = 72
+  settings_visibility_level                  = "private"
+  settings_wiki_access_level                 = "disabled"
+  # This variable have multiple keys, see variable.tf for more informations or
+  # below in this README
+  settings_push_rules                        = {}
+}
+```
+
+### Manage Group labels
+
+```hcl
+module "gitlab_group" {
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
+
+  # Required Variables
+  settings_path        = "group-name"
+  settings_name        = "Group Name"
+  settings_description = "Group Description"
+
+  # Minimal Example value, see README below for more details
+  labels = {
     "Label Name" = {
       color = "#ff0000"
     }
   }
-  group_variables = {
+}
+```
+
+### Manage Group variables
+
+```hcl
+module "gitlab_group" {
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
+
+  # Required Variables
+  settings_path        = "group-name"
+  settings_name        = "Group Name"
+  settings_description = "Group Description"
+
+  # Minimal Example value, see README below for more details
+  variables = {
     "VAR_NAME" = {
       value = "Variable value"
     }
   }
-  group_access_tokens = {
+}
+```
+
+### Manage Group access tokens
+
+```hcl
+module "gitlab_group" {
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
+
+  # Required Variables
+  settings_path        = "group-name"
+  settings_name        = "Group Name"
+  settings_description = "Group Description"
+
+  # Minimal Example value, see README below for more details
+  access_tokens = {
     "ACCESS_TOKEN" = {
       scopes =["api"]
       expires_at = "YYYY-MM-DD"
@@ -102,13 +177,13 @@ module "gitlab_group" {
 ### Resources
 
 * [resource.gitlab_group.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group)
-  > Manage the lifecycle of a group.
+  > Manage settings of the group.
 * [resource.gitlab_group_access_token.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_access_token)
-  > Manage the lifecycle of a group access token.
+  > Manage a group access token.
 * [resource.gitlab_group_label.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_label)
-  > Manage the lifecycle of labels within a group.
+  > Manage labels of a group.
 * [resource.gitlab_group_variable.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_variable)
-  > Manage the lifecycle of a CI/CD variable for a group.
+  > Manage CI/CD variable for a group.
 
 <!-- markdownlint-capture -->
 ### Inputs
@@ -116,10 +191,11 @@ module "gitlab_group" {
 <!-- markdownlint-disable -->
 #### Required Inputs
 
-* [group_path](#group_path)
-* [group_name](#group_name)
+* [settings_path](#settings_path)
+* [settings_name](#settings_name)
+* [settings_description](#settings_description)
 
-##### `group_path`
+##### `settings_path`
 
 Path of the group
 <div style="display:inline-block;width:100%;">
@@ -134,7 +210,7 @@ string
 </div>
 </div>
 
-##### `group_name`
+##### `settings_name`
 
 Name of the group
 <div style="display:inline-block;width:100%;">
@@ -149,61 +225,50 @@ string
 </div>
 </div>
 
-#### Optional Inputs
-
-* [group_description](#group_description)
-* [group_parent_id](#group_parent_id)
-* [group_auto_devops_enabled](#group_auto_devops_enabled)
-* [group_avatar](#group_avatar)
-* [group_avatar_hash](#group_avatar_hash)
-* [group_default_branch_protection](#group_default_branch_protection)
-* [group_emails_enabled](#group_emails_enabled)
-* [group_ip_restriction_ranges](#group_ip_restriction_ranges)
-* [group_lfs_enabled](#group_lfs_enabled)
-* [group_membership_lock](#group_membership_lock)
-* [group_mentions_disabled](#group_mentions_disabled)
-* [group_permanently_remove_on_delete](#group_permanently_remove_on_delete)
-* [group_prevent_forking_outside_group](#group_prevent_forking_outside_group)
-* [group_project_creation_level](#group_project_creation_level)
-* [group_request_access_enabled](#group_request_access_enabled)
-* [group_require_two_factor_authentication](#group_require_two_factor_authentication)
-* [group_share_with_group_lock](#group_share_with_group_lock)
-* [group_shared_runners_setting](#group_shared_runners_setting)
-* [group_subgroup_creation_level](#group_subgroup_creation_level)
-* [group_two_factor_grace_period](#group_two_factor_grace_period)
-* [group_visibility_level](#group_visibility_level)
-* [group_wiki_access_level](#group_wiki_access_level)
-* [group_push_rules](#group_push_rules)
-* [group_labels](#group_labels)
-* [group_variables](#group_variables)
-* [group_access_tokens](#group_access_tokens)
-
-
-##### `group_description`
+##### `settings_description`
 
 Group description
-<details style="width: 100%;display: inline-block">
-  <summary>Type & Default</summary>
-  <div style="height: 1em"></div>
-  <div style="width:64%; float:left;">
-  <p style="border-bottom: 1px solid #333333;">Type</p>
+<div style="display:inline-block;width:100%;">
+<div style="float:left;border-color:#FFFFFF;width:75%;">
+<details><summary>Type</summary>
 
-  ```hcl
-  string
-  ```
+```hcl
+string
+```
 
-  </div>
-  <div style="width:34%;float:right;">
-  <p style="border-bottom: 1px solid #333333;">Default</p>
-
-  ```hcl
-  null
-  ```
-
-  </div>
 </details>
+</div>
+</div>
 
-##### `group_parent_id`
+#### Optional Inputs
+
+* [settings_parent_id](#settings_parent_id)
+* [settings_auto_devops_enabled](#settings_auto_devops_enabled)
+* [settings_avatar](#settings_avatar)
+* [settings_default_branch_protection](#settings_default_branch_protection)
+* [settings_emails_enabled](#settings_emails_enabled)
+* [settings_ip_restriction_ranges](#settings_ip_restriction_ranges)
+* [settings_lfs_enabled](#settings_lfs_enabled)
+* [settings_membership_lock](#settings_membership_lock)
+* [settings_mentions_disabled](#settings_mentions_disabled)
+* [settings_permanently_remove_on_delete](#settings_permanently_remove_on_delete)
+* [settings_prevent_forking_outside_group](#settings_prevent_forking_outside_group)
+* [settings_project_creation_level](#settings_project_creation_level)
+* [settings_request_access_enabled](#settings_request_access_enabled)
+* [settings_require_two_factor_authentication](#settings_require_two_factor_authentication)
+* [settings_share_with_group_lock](#settings_share_with_group_lock)
+* [settings_shared_runners_setting](#settings_shared_runners_setting)
+* [settings_subgroup_creation_level](#settings_subgroup_creation_level)
+* [settings_two_factor_grace_period](#settings_two_factor_grace_period)
+* [settings_visibility_level](#settings_visibility_level)
+* [settings_wiki_access_level](#settings_wiki_access_level)
+* [settings_push_rules](#settings_push_rules)
+* [labels](#labels)
+* [variables](#variables)
+* [access_token](#access_token)
+
+
+##### `settings_parent_id`
 
 ID of the parent group (creates a nested group).
 <details style="width: 100%;display: inline-block">
@@ -227,7 +292,7 @@ ID of the parent group (creates a nested group).
   </div>
 </details>
 
-##### `group_auto_devops_enabled`
+##### `settings_auto_devops_enabled`
 
 Default to Auto DevOps pipeline for all projects within this group
 <details style="width: 100%;display: inline-block">
@@ -251,7 +316,7 @@ Default to Auto DevOps pipeline for all projects within this group
   </div>
 </details>
 
-##### `group_avatar`
+##### `settings_avatar`
 
 A local path to the avatar image to upload.
 <details style="width: 100%;display: inline-block">
@@ -275,31 +340,7 @@ A local path to the avatar image to upload.
   </div>
 </details>
 
-##### `group_avatar_hash`
-
-The hash of the avatar image. Use filesha256('path/to/avatar.png')
-<details style="width: 100%;display: inline-block">
-  <summary>Type & Default</summary>
-  <div style="height: 1em"></div>
-  <div style="width:64%; float:left;">
-  <p style="border-bottom: 1px solid #333333;">Type</p>
-
-  ```hcl
-  string
-  ```
-
-  </div>
-  <div style="width:34%;float:right;">
-  <p style="border-bottom: 1px solid #333333;">Default</p>
-
-  ```hcl
-  null
-  ```
-
-  </div>
-</details>
-
-##### `group_default_branch_protection`
+##### `settings_default_branch_protection`
 
 See https://docs.gitlab.com/ee/api/groups.html#options-for-default_branch_protection.
 <details style="width: 100%;display: inline-block">
@@ -323,7 +364,7 @@ See https://docs.gitlab.com/ee/api/groups.html#options-for-default_branch_protec
   </div>
 </details>
 
-##### `group_emails_enabled`
+##### `settings_emails_enabled`
 
 Enable email notifications.
 <details style="width: 100%;display: inline-block">
@@ -347,7 +388,7 @@ Enable email notifications.
   </div>
 </details>
 
-##### `group_ip_restriction_ranges`
+##### `settings_ip_restriction_ranges`
 
 A list of IP addresses or subnet masks to restrict group access.
 Will be concatenated together into a comma separated string.
@@ -374,7 +415,7 @@ Only allowed on top level groups.
   </div>
 </details>
 
-##### `group_lfs_enabled`
+##### `settings_lfs_enabled`
 
 Enable/disable Large File Storage (LFS) for the projects in this group.
 <details style="width: 100%;display: inline-block">
@@ -398,7 +439,7 @@ Enable/disable Large File Storage (LFS) for the projects in this group.
   </div>
 </details>
 
-##### `group_membership_lock`
+##### `settings_membership_lock`
 
 Users cannot be added to projects in this group.
 <details style="width: 100%;display: inline-block">
@@ -422,7 +463,7 @@ Users cannot be added to projects in this group.
   </div>
 </details>
 
-##### `group_mentions_disabled`
+##### `settings_mentions_disabled`
 
 Disable the capability of a group from getting mentioned.
 <details style="width: 100%;display: inline-block">
@@ -446,7 +487,7 @@ Disable the capability of a group from getting mentioned.
   </div>
 </details>
 
-##### `group_permanently_remove_on_delete`
+##### `settings_permanently_remove_on_delete`
 
 Whether the group should be permanently removed during a delete operation.
 This only works with subgroups.
@@ -473,7 +514,7 @@ Must be configured via an apply before the destroy is run.
   </div>
 </details>
 
-##### `group_prevent_forking_outside_group`
+##### `settings_prevent_forking_outside_group`
 
 When enabled, users can not fork projects from this group to external
 namespaces.
@@ -499,7 +540,7 @@ namespaces.
   </div>
 </details>
 
-##### `group_project_creation_level`
+##### `settings_project_creation_level`
 
 Determine if developers can create projects in the group.
 <details style="width: 100%;display: inline-block">
@@ -523,7 +564,7 @@ Determine if developers can create projects in the group.
   </div>
 </details>
 
-##### `group_request_access_enabled`
+##### `settings_request_access_enabled`
 
 Allow users to request member access.
 <details style="width: 100%;display: inline-block">
@@ -547,7 +588,7 @@ Allow users to request member access.
   </div>
 </details>
 
-##### `group_require_two_factor_authentication`
+##### `settings_require_two_factor_authentication`
 
 Require all users in this group to setup Two-factor authentication.
 <details style="width: 100%;display: inline-block">
@@ -571,7 +612,7 @@ Require all users in this group to setup Two-factor authentication.
   </div>
 </details>
 
-##### `group_share_with_group_lock`
+##### `settings_share_with_group_lock`
 
 Prevent sharing a project with another group within this group.
 <details style="width: 100%;display: inline-block">
@@ -595,7 +636,7 @@ Prevent sharing a project with another group within this group.
   </div>
 </details>
 
-##### `group_shared_runners_setting`
+##### `settings_shared_runners_setting`
 
 Enable or disable shared runners for a group’s subgroups and projects.
 <details style="width: 100%;display: inline-block">
@@ -619,7 +660,7 @@ Enable or disable shared runners for a group’s subgroups and projects.
   </div>
 </details>
 
-##### `group_subgroup_creation_level`
+##### `settings_subgroup_creation_level`
 
 Allowed to create subgroups. Valid values are: owner, maintainer.
 <details style="width: 100%;display: inline-block">
@@ -643,7 +684,7 @@ Allowed to create subgroups. Valid values are: owner, maintainer.
   </div>
 </details>
 
-##### `group_two_factor_grace_period`
+##### `settings_two_factor_grace_period`
 
 Time before Two-factor authentication is enforced (in hours).
 <details style="width: 100%;display: inline-block">
@@ -667,7 +708,7 @@ Time before Two-factor authentication is enforced (in hours).
   </div>
 </details>
 
-##### `group_visibility_level`
+##### `settings_visibility_level`
 
 The group's visibility. Can be private, internal, or public
 <details style="width: 100%;display: inline-block">
@@ -691,7 +732,7 @@ The group's visibility. Can be private, internal, or public
   </div>
 </details>
 
-##### `group_wiki_access_level`
+##### `settings_wiki_access_level`
 
 The group's wiki access level. Only available on Premium and Ultimate plans. Valid values are disabled, private, enabled.
 <details style="width: 100%;display: inline-block">
@@ -715,7 +756,7 @@ The group's wiki access level. Only available on Premium and Ultimate plans. Val
   </div>
 </details>
 
-##### `group_push_rules`
+##### `settings_push_rules`
 
 Object describing push rules with following structure:
 * `author_email_regex`: String, optional, all commit author emails must match
@@ -777,7 +818,7 @@ Object describing push rules with following structure:
   </div>
 </details>
 
-##### `group_labels`
+##### `labels`
 
 Map of objects, where key is the name of the label, describing labels with
 following structure:
@@ -809,7 +850,7 @@ following structure:
   </div>
 </details>
 
-##### `group_variables`
+##### `variables`
 
 Map of objects, where key is the name of the variables, describing variables
 with following structure:
@@ -856,7 +897,7 @@ with following structure:
   </div>
 </details>
 
-##### `group_access_tokens`
+##### `access_token`
 
 Map of objects, where key is the name of the access token, describing access
 token configuration with following structure:
