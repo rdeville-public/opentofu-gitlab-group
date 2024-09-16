@@ -1,28 +1,28 @@
-variable "group_path" {
+# Groups settings variables
+# ------------------------------------------------------------------------
+variable "settings_path" {
   type        = string
   description = "Path of the group"
 }
 
-variable "group_name" {
+variable "settings_name" {
   type        = string
   description = "Name of the group"
 }
 
-variable "group_description" {
+variable "settings_description" {
   type        = string
   description = "Group description"
-
-  default = null
 }
 
-variable "group_parent_id" {
+variable "settings_parent_id" {
   type        = string
   description = "ID of the parent group (creates a nested group)."
 
   default = null
 }
 
-variable "group_auto_devops_enabled" {
+variable "settings_auto_devops_enabled" {
   type        = bool
   description = "Default to Auto DevOps pipeline for all projects within this group"
 
@@ -30,21 +30,14 @@ variable "group_auto_devops_enabled" {
   default  = false
 }
 
-variable "group_avatar" {
+variable "settings_avatar" {
   type        = string
   description = "A local path to the avatar image to upload."
 
   default = null
 }
 
-variable "group_avatar_hash" {
-  type        = string
-  description = "The hash of the avatar image. Use filesha256('path/to/avatar.png')"
-
-  default = null
-}
-
-variable "group_default_branch_protection" {
+variable "settings_default_branch_protection" {
   type        = number
   description = "See https://docs.gitlab.com/ee/api/groups.html#options-for-default_branch_protection."
 
@@ -52,7 +45,7 @@ variable "group_default_branch_protection" {
   default  = 4
 }
 
-variable "group_emails_enabled" {
+variable "settings_emails_enabled" {
   type        = bool
   description = "Enable email notifications."
 
@@ -60,7 +53,7 @@ variable "group_emails_enabled" {
   default  = false
 }
 
-variable "group_ip_restriction_ranges" {
+variable "settings_ip_restriction_ranges" {
   type        = list(string)
   description = <<-EOM
   A list of IP addresses or subnet masks to restrict group access.
@@ -71,7 +64,7 @@ variable "group_ip_restriction_ranges" {
   default = null
 }
 
-variable "group_lfs_enabled" {
+variable "settings_lfs_enabled" {
   type        = bool
   description = "Enable/disable Large File Storage (LFS) for the projects in this group."
 
@@ -79,7 +72,7 @@ variable "group_lfs_enabled" {
   default  = false
 }
 
-variable "group_membership_lock" {
+variable "settings_membership_lock" {
   type        = bool
   description = "Users cannot be added to projects in this group."
 
@@ -87,7 +80,7 @@ variable "group_membership_lock" {
   default  = true
 }
 
-variable "group_mentions_disabled" {
+variable "settings_mentions_disabled" {
   type        = bool
   description = "Disable the capability of a group from getting mentioned."
 
@@ -95,7 +88,7 @@ variable "group_mentions_disabled" {
   default  = true
 }
 
-variable "group_permanently_remove_on_delete" {
+variable "settings_permanently_remove_on_delete" {
   type        = bool
   description = <<-EOM
   Whether the group should be permanently removed during a delete operation.
@@ -107,7 +100,7 @@ variable "group_permanently_remove_on_delete" {
   default  = false
 }
 
-variable "group_prevent_forking_outside_group" {
+variable "settings_prevent_forking_outside_group" {
   type        = bool
   description = <<-EOM
   When enabled, users can not fork projects from this group to external
@@ -118,7 +111,7 @@ variable "group_prevent_forking_outside_group" {
   default  = false
 }
 
-variable "group_project_creation_level" {
+variable "settings_project_creation_level" {
   type        = string
   description = "Determine if developers can create projects in the group."
 
@@ -126,7 +119,7 @@ variable "group_project_creation_level" {
   default  = "noone"
 }
 
-variable "group_request_access_enabled" {
+variable "settings_request_access_enabled" {
   type        = bool
   description = "Allow users to request member access."
 
@@ -134,7 +127,7 @@ variable "group_request_access_enabled" {
   default  = false
 }
 
-variable "group_require_two_factor_authentication" {
+variable "settings_require_two_factor_authentication" {
   type        = bool
   description = "Require all users in this group to setup Two-factor authentication."
 
@@ -142,7 +135,7 @@ variable "group_require_two_factor_authentication" {
   default  = true
 }
 
-variable "group_share_with_group_lock" {
+variable "settings_share_with_group_lock" {
   type        = bool
   description = "Prevent sharing a project with another group within this group."
 
@@ -150,7 +143,7 @@ variable "group_share_with_group_lock" {
   default  = true
 }
 
-variable "group_shared_runners_setting" {
+variable "settings_shared_runners_setting" {
   type        = string
   description = "Enable or disable shared runners for a group’s subgroups and projects."
 
@@ -158,7 +151,7 @@ variable "group_shared_runners_setting" {
   default  = "disabled_and_unoverridable"
 }
 
-variable "group_subgroup_creation_level" {
+variable "settings_subgroup_creation_level" {
   type        = string
   description = "Allowed to create subgroups. Valid values are: owner, maintainer."
 
@@ -166,7 +159,7 @@ variable "group_subgroup_creation_level" {
   default  = "owner"
 }
 
-variable "group_two_factor_grace_period" {
+variable "settings_two_factor_grace_period" {
   type        = number
   description = "Time before Two-factor authentication is enforced (in hours)."
 
@@ -174,7 +167,7 @@ variable "group_two_factor_grace_period" {
   default  = 72
 }
 
-variable "group_visibility_level" {
+variable "settings_visibility_level" {
   type        = string
   description = "The group's visibility. Can be private, internal, or public"
 
@@ -182,7 +175,7 @@ variable "group_visibility_level" {
   default  = "private"
 }
 
-variable "group_wiki_access_level" {
+variable "settings_wiki_access_level" {
   type        = string
   description = "The group's wiki access level. Only available on Premium and Ultimate plans. Valid values are disabled, private, enabled."
 
@@ -190,7 +183,7 @@ variable "group_wiki_access_level" {
   default  = "disabled"
 }
 
-variable "group_push_rules" {
+variable "settings_push_rules" {
   type = object({
     author_email_regex            = optional(string)
     branch_name_regex             = optional(string)
@@ -237,7 +230,10 @@ variable "group_push_rules" {
   default  = {}
 }
 
-variable "group_labels" {
+# Groups labels variables
+# ------------------------------------------------------------------------
+variable "labels" {
+  # Key is the name of the label
   type = map(object({
     color       = string
     description = optional(string)
@@ -254,7 +250,9 @@ variable "group_labels" {
   default  = {}
 }
 
-variable "group_variables" {
+# Groups CI variables variables
+# ------------------------------------------------------------------------
+variable "variables" {
   type = map(object({
     value             = string
     environment_scope = optional(string)
@@ -286,7 +284,7 @@ variable "group_variables" {
   default  = {}
 }
 
-variable "group_access_tokens" {
+variable "access_token" {
   type = map(object({
     expires_at   = string
     scopes       = set(string)

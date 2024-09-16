@@ -1,33 +1,33 @@
-// Manage the lifecycle of a group.
+# Manage settings of the group.
 resource "gitlab_group" "this" {
-  path        = var.group_path
-  name        = var.group_name
-  description = var.group_description
-  parent_id   = var.group_parent_id
+  path        = var.settings_path
+  name        = var.settings_name
+  description = var.settings_description
+  parent_id   = var.settings_parent_id
 
-  auto_devops_enabled               = var.group_auto_devops_enabled
-  avatar                            = var.group_avatar
-  avatar_hash                       = var.group_avatar_hash
-  default_branch_protection         = var.group_default_branch_protection
-  emails_enabled                    = var.group_emails_enabled
-  lfs_enabled                       = var.group_lfs_enabled
-  ip_restriction_ranges             = var.group_ip_restriction_ranges
-  membership_lock                   = var.group_membership_lock
-  mentions_disabled                 = var.group_mentions_disabled
-  prevent_forking_outside_group     = var.group_prevent_forking_outside_group
-  project_creation_level            = var.group_project_creation_level
-  permanently_remove_on_delete      = var.group_permanently_remove_on_delete
-  request_access_enabled            = var.group_request_access_enabled
-  require_two_factor_authentication = var.group_require_two_factor_authentication
-  share_with_group_lock             = var.group_share_with_group_lock
-  shared_runners_setting            = var.group_shared_runners_setting
-  subgroup_creation_level           = var.group_subgroup_creation_level
-  two_factor_grace_period           = var.group_two_factor_grace_period
-  visibility_level                  = var.group_visibility_level
-  wiki_access_level                 = var.group_wiki_access_level
+  auto_devops_enabled               = var.settings_auto_devops_enabled
+  avatar                            = var.settings_avatar
+  avatar_hash                       = filesha256(var.settings_avatar)
+  default_branch_protection         = var.settings_default_branch_protection
+  emails_enabled                    = var.settings_emails_enabled
+  lfs_enabled                       = var.settings_lfs_enabled
+  ip_restriction_ranges             = var.settings_ip_restriction_ranges
+  membership_lock                   = var.settings_membership_lock
+  mentions_disabled                 = var.settings_mentions_disabled
+  permanently_remove_on_delete      = var.settings_parent_id != null ? var.settings_permanently_remove_on_delete : null
+  prevent_forking_outside_group     = var.settings_prevent_forking_outside_group
+  project_creation_level            = var.settings_project_creation_level
+  request_access_enabled            = var.settings_request_access_enabled
+  require_two_factor_authentication = var.settings_require_two_factor_authentication
+  share_with_group_lock             = var.settings_share_with_group_lock
+  shared_runners_setting            = var.settings_shared_runners_setting
+  subgroup_creation_level           = var.settings_subgroup_creation_level
+  two_factor_grace_period           = var.settings_two_factor_grace_period
+  visibility_level                  = var.settings_visibility_level
+  wiki_access_level                 = var.settings_wiki_access_level
 
   dynamic "push_rules" {
-    for_each = var.group_push_rules
+    for_each = var.settings_push_rules
 
     content {
       branch_name_regex       = push_rules.value.branch_name_regex
@@ -41,9 +41,9 @@ resource "gitlab_group" "this" {
   }
 }
 
-// Manage the lifecycle of labels within a group.
+# Manage labels of a group.
 resource "gitlab_group_label" "this" {
-  for_each = var.group_labels
+  for_each = var.labels
 
   group       = gitlab_group.this.id
   name        = each.key
@@ -51,9 +51,9 @@ resource "gitlab_group_label" "this" {
   description = each.value.description
 }
 
-// Manage the lifecycle of a CI/CD variable for a group.
+# Manage CI/CD variable for a group.
 resource "gitlab_group_variable" "this" {
-  for_each = var.group_variables
+  for_each = var.variables
 
   group = gitlab_group.this.name
   key   = each.key
@@ -66,9 +66,9 @@ resource "gitlab_group_variable" "this" {
   variable_type     = each.value.variable_type
 }
 
-// Manage the lifecycle of a group access token.
+# Manage a group access token.
 resource "gitlab_group_access_token" "this" {
-  for_each = var.group_access_tokens
+  for_each = var.access_token
 
   group      = gitlab_group.this.name
   name       = each.key
