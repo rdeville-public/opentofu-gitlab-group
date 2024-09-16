@@ -1,6 +1,17 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.1.2 (2024-09-16)
+
+### 🩹 Patch
+
+  * 🏷️ Rename variables (!6) by Romain Deville ([`10abe2c`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/10abe2c48db539aa562db8d26822f4ff194dc9b3))
+  * 🏷️ Update variables names by Romain Deville ([`205e6d7`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/205e6d74b49070bfcbf9c85efc4e21e1b4799420)) 🔏
+
+### 🔊 Others
+
+  * 📝 Update README from tf-docs and add more examples by Romain Deville ([`94ba867`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/94ba8679e9b8475cb2f1368223baf020a5902181)) 🔏
+
 ## v0.1.1 (2024-09-09)
 
 ### 🩹 Patch
@@ -15,6 +26,7 @@
   * 💚 Fix CI from DGS Template (!3) by Romain Deville ([`6bda518`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/6bda5182dcc6a77f85656f8459ec2482bd8a11f7))
   * 💚 Fix CI from DGS Template by Romain Deville ([`9e4f674`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/9e4f6741b2225afb9eb1c2047407cf1908d2f882)) 🔏
   * 📝 Update README from tf-docs by Romain Deville ([`f247c87`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/f247c87454a0e7f7efc79b03a278c77d59fcf378)) 🔏
+  * 🔖 v0.1.1 (NO-CI) by Python Semantic Release [bot] ([`39a3306`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/39a33068e33239fa26b492806fbb6497ef0be807))
 
 ## v0.1.0 (2024-08-25)
 
@@ -51,9 +63,7 @@
 
   * 🎉 Initialisation of the project from DGS (!1) by Romain Deville ([`83dd716`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/83dd71602f7d782f053e01105bf0e49924e61e42))
   * 👷 Add Gitlab CI from DGS template by Romain Deville ([`cad3e3d`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/cad3e3da23d63a064e5db0ae40b999fb4c6df6c3)) 🔏
-  * 📄 Update licenses from DGS by Romain Deville ([`337574d`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/337574de6a4ca757f8a06701f14a8d18d72c6a23)) 🔏
   * 📝 Add CODE_OF_CONDUCT from DGS by Romain Deville ([`ecb6ca0`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/ecb6ca010b67c08a2579068498536f1a119da271)) 🔏
-  * 📝 Update README from DGS by Romain Deville ([`6c2e09b`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/6c2e09b94955bdc3c8cb19a6e8c497c12ada7f73)) 🔏
   * 🔖 v0.0.1 (NO-CI) by Python Semantic Release [bot] ([`541d5a6`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/541d5a6c8db18394c15a565b20048df2e45b3109))
   * 🔨 Add .envrc from DGS by Romain Deville ([`4ef252e`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/4ef252e46874ba846bb3a4132b8aab36180ab897)) 🔏
   * 🔨 Add devbox config from DGS template by Romain Deville ([`a26a294`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/a26a2945117d04d075fe2472f197c9d23f4bca68)) 🔏
