@@ -68,7 +68,7 @@ resource "gitlab_group_variable" "this" {
 
 # Manage a group access token.
 resource "gitlab_group_access_token" "this" {
-  for_each = var.access_token
+  for_each = var.access_tokens
 
   group      = gitlab_group.this.name
   name       = each.key
@@ -77,4 +77,16 @@ resource "gitlab_group_access_token" "this" {
 
   access_level           = each.value.access_level
   rotation_configuration = each.value.rotation_configuration
+}
+
+# Manage group membership
+resource "gitlab_group_membership" "this" {
+  for_each = local.membership
+
+  group_id                      = gitlab_group.this.id
+  user_id                       = each.key
+  access_level                  = each.value
+  expires_at                    = var.membership[each.value][each.key].expires_at
+  skip_subresources_on_destroy  = var.membership[each.value][each.key].skip_subresources_on_destroy
+  unassign_issuables_on_destroy = var.membership[each.value][each.key].unassign_issuables_on_destroy
 }

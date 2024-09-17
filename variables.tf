@@ -284,7 +284,9 @@ variable "variables" {
   default  = {}
 }
 
-variable "access_token" {
+# Groups access token variables
+# ------------------------------------------------------------------------
+variable "access_tokens" {
   type = map(object({
     expires_at   = string
     scopes       = set(string)
@@ -312,6 +314,144 @@ variable "access_token" {
         valid for.
       * `rotate_before_days`: Number, the duration (in days) before the expiration
         when the token should be rotated.
+  EOM
+
+  nullable = false
+  default  = {}
+}
+
+# Groups user variables
+# ------------------------------------------------------------------------
+variable "membership" {
+  type = object({
+    minimal = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    guest = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    reporter = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    developer = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    maintainer = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    owner = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+  })
+  description = <<-EOM
+  Object, with following attributes:
+
+  * `minimal`
+  * `guest`
+  * `reporter`
+  * `developer`
+  * `maintainer`
+  * `owner`
+
+  Each of the attributes are optional map of object, where key are user ID and
+  with default values to `{}`.
+
+  Above list of attributes represent the access level provided to users in order
+  of capacity such that users with `minimal` access have less access than user
+  with `guest` access levelt, etc.
+
+  Each user configuration object support following attributes :
+
+  * `expires_at`: String, optional, expiration date for the group membership.
+    Format: YYYY-MM-DD
+  * `skip_subresources_on_destroy`: Boolean, optional, whether the deletion of
+    direct memberships of the removed member in subgroups and projects should be
+    skipped. Only used during a destroy.
+  * `unassign_issuables_on_destroy`: Boolean, optional, whether the removed
+    member should be unassigned from any issues or merge requests inside a given
+    group or project. Only used during a destroy.
+
+  For instance, with minimal settings:
+
+  ```hcl
+  membership = {
+    minimal = {
+      "0000" = {}
+    }
+    guest = {
+      "1111" = {}
+    }
+    reporter = {
+      "2222" = {}
+    }
+    developer = {
+      "3333" = {}
+    }
+    maintainer = {
+      "4444" = {}
+    }
+    owner = {
+      "5555" = {}
+    }
+  }
+  ```
+
+  Provide unlimited `minimal` access level to user with ID `0000`, unlimited
+  `guest` access to user with ID `1111`, etc.
+
+  If a user is set in multiple roles, then the higher access level is applied,
+  except if attribute `expires_at` for this user is already a previous day, then
+  higher remaining access level is applied.
+
+  This can be useful for instance when providing temporarly greater access level
+  to a user while minimizing the amount of action needed and setting a deadline
+  to when the access level is removed.
+
+  For instances:
+
+  ```hcl
+  # Assuming the day you run your apply is the 1st january of 2020, i.e. `2020-01-01`
+  membership = {
+    minimal = {
+      "0000" = {}
+      "1111" = {}
+    }
+    guest = {
+      "1111" = {}
+      "4444" = {}
+    }
+    developer = {
+      "2222" = {}
+      "3333" = {}
+      "4444" = {}
+    }
+    maintainer = {
+      "3333" = {
+        expires_at = "2020-12-31"
+      }
+      "4444" = {
+        expires_at = "2019-12-31"
+      }
+    }
+  }
+  ```
+
+  This will provide `minimal` access to user `0000`, `guest` access to user
+  `1111`, developer access to users `2222` and `4444` and `maintainer` access to
+  user `3333` until the 31th december of 2020, then user `3333` access level
+  will be revoked to `developer`.
   EOM
 
   nullable = false
