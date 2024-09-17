@@ -153,6 +153,93 @@ module "gitlab_group" {
 }
 ```
 
+### Manage Group membership
+
+```hcl
+module "gitlab_group" {
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
+
+  # Required Variables
+  settings_path        = "group-name"
+  settings_name        = "Group Name"
+  settings_description = "Group Description"
+
+  # Minimal Example value, see README below for more details
+  membership = {
+    minimal = {
+      "0000" = {}
+    }
+    guest = {
+      "1111" = {}
+    }
+    reporter = {
+      "2222" = {}
+    }
+    developer = {
+      "3333" = {}
+    }
+    maintainer = {
+      "4444" = {}
+    }
+    owner = {
+      "5555" = {}
+    }
+  }
+}
+```
+
+### Manage Group membership with higher access privileged
+
+There is a mechanism such that if a user ID is in multiple roles, then the
+higher access level is applied, except if attribute `expires_at` for this user
+is already a previous day, then higher remaining access level is applied.
+
+This can be useful for instance when providing temporarly greater access level
+to a user while minimizing the amount of action needed and setting a deadline
+to when the access level is removed.
+
+```hcl
+module "gitlab_group" {
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
+
+  # Required Variables
+  settings_path        = "group-name"
+  settings_name        = "Group Name"
+  settings_description = "Group Description"
+
+  # Minimal Example value, see README below for more details
+  # Assuming the day you run your apply is the 1st january of 2020, i.e. `2020-01-01`
+  membership = {
+    minimal = {
+      "0000" = {}
+      "1111" = {}
+    }
+    guest = {
+      "1111" = {}
+      "4444" = {}
+    }
+    developer = {
+      "2222" = {}
+      "3333" = {}
+      "4444" = {}
+    }
+    maintainer = {
+      "3333" = {
+        expires_at = "2020-12-31"
+      }
+      "4444" = {
+        expires_at = "2019-12-31"
+      }
+    }
+  }
+}
+```
+
+This will provide `minimal` access to user `0000`, `guest` access to user `1111`,
+developer access to users `2222` and `4444` and `maintainer` access to user
+`3333` until the 31th december of 2020, then user `3333` access level will be
+revoked to `developer`.
+
 <!-- BEGIN TF-DOCS -->
 ## ⚙️ Module Content
 
@@ -182,6 +269,8 @@ module "gitlab_group" {
   > Manage a group access token.
 * [resource.gitlab_group_label.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_label)
   > Manage labels of a group.
+* [resource.gitlab_group_membership.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_membership)
+  > Manage group membership
 * [resource.gitlab_group_variable.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_variable)
   > Manage CI/CD variable for a group.
 
@@ -265,7 +354,8 @@ string
 * [settings_push_rules](#settings_push_rules)
 * [labels](#labels)
 * [variables](#variables)
-* [access_token](#access_token)
+* [access_tokens](#access_tokens)
+* [membership](#membership)
 
 
 ##### `settings_parent_id`
@@ -897,7 +987,7 @@ with following structure:
   </div>
 </details>
 
-##### `access_token`
+##### `access_tokens`
 
 Map of objects, where key is the name of the access token, describing access
 token configuration with following structure:
@@ -933,6 +1023,157 @@ token configuration with following structure:
       rotate_before_days = number
     })
   }))
+  ```
+
+  </div>
+  <div style="width:34%;float:right;">
+  <p style="border-bottom: 1px solid #333333;">Default</p>
+
+  ```hcl
+  {}
+  ```
+
+  </div>
+</details>
+
+##### `membership`
+
+Object, with following attributes:
+
+* `minimal`
+* `guest`
+* `reporter`
+* `developer`
+* `maintainer`
+* `owner`
+
+Each of the attributes are optional map of object, where key are user ID and
+with default values to `{}`.
+
+Above list of attributes represent the access level provided to users in order
+of capacity such that users with `minimal` access have less access than user
+with `guest` access levelt, etc.
+
+Each user configuration object support following attributes :
+
+* `expires_at`: String, optional, expiration date for the group membership.
+  Format: YYYY-MM-DD
+* `skip_subresources_on_destroy`: Boolean, optional, whether the deletion of
+  direct memberships of the removed member in subgroups and projects should be
+  skipped. Only used during a destroy.
+* `unassign_issuables_on_destroy`: Boolean, optional, whether the removed
+  member should be unassigned from any issues or merge requests inside a given
+  group or project. Only used during a destroy.
+
+For instance, with minimal settings:
+
+```hcl
+membership = {
+  minimal = {
+    "0000" = {}
+  }
+  guest = {
+    "1111" = {}
+  }
+  reporter = {
+    "2222" = {}
+  }
+  developer = {
+    "3333" = {}
+  }
+  maintainer = {
+    "4444" = {}
+  }
+  owner = {
+    "5555" = {}
+  }
+}
+```
+
+Provide unlimited `minimal` access level to user with ID `0000`, unlimited
+`guest` access to user with ID `1111`, etc.
+
+If a user is set in multiple roles, then the higher access level is applied,
+except if attribute `expires_at` for this user is already a previous day, then
+higher remaining access level is applied.
+
+This can be useful for instance when providing temporarly greater access level
+to a user while minimizing the amount of action needed and setting a deadline
+to when the access level is removed.
+
+For instances:
+
+```hcl
+# Assuming the day you run your apply is the 1st january of 2020, i.e. `2020-01-01`
+membership = {
+  minimal = {
+    "0000" = {}
+    "1111" = {}
+  }
+  guest = {
+    "1111" = {}
+    "4444" = {}
+  }
+  developer = {
+    "2222" = {}
+    "3333" = {}
+    "4444" = {}
+  }
+  maintainer = {
+    "3333" = {
+      expires_at = "2020-12-31"
+    }
+    "4444" = {
+      expires_at = "2019-12-31"
+    }
+  }
+}
+```
+
+This will provide `minimal` access to user `0000`, `guest` access to user
+`1111`, developer access to users `2222` and `4444` and `maintainer` access to
+user `3333` until the 31th december of 2020, then user `3333` access level
+will be revoked to `developer`.
+
+<details style="width: 100%;display: inline-block">
+  <summary>Type & Default</summary>
+  <div style="height: 1em"></div>
+  <div style="width:64%; float:left;">
+  <p style="border-bottom: 1px solid #333333;">Type</p>
+
+  ```hcl
+  object({
+    minimal = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    guest = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    reporter = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    developer = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    maintainer = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+    owner = optional(map(object({
+      expires_at                    = optional(string)
+      skip_subresources_on_destroy  = optional(bool, false)
+      unassign_issuables_on_destroy = optional(bool, true)
+    })), {})
+  })
   ```
 
   </div>
