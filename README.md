@@ -316,6 +316,25 @@ module "gitlab_group" {
 }
 ```
 
+### Manage Group Custom Attribues
+
+```hcl
+module "gitlab_group" {
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
+
+  # Required Variables
+  path        = "group-name"
+  name        = "Group Name"
+  description = "Group Description"
+
+  # Example value
+  custom_attribute = {
+    "Key"         = "value"
+    "Another Key" = "value"
+  }
+}
+```
+
 <!-- BEGIN TF-DOCS -->
 ## ⚙️ Module Content
 
@@ -345,6 +364,8 @@ module "gitlab_group" {
   > Manage a group access token.
 * [resource.gitlab_group_badge.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_badge)
   > Manage group badges
+* [resource.gitlab_group_custom_attribute.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_custom_attribute)
+  > Manage group custom attributes
 * [resource.gitlab_group_hook.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_hook)
   > Manage group hooks
 * [resource.gitlab_group_label.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_label)
@@ -438,6 +459,7 @@ string
 * [membership](#membership)
 * [badges](#badges)
 * [hooks](#hooks)
+* [custom_attributes](#custom_attributes)
 
 
 ##### `settings_parent_id`
@@ -1372,6 +1394,32 @@ following attributes:
     tag_push_events            = optional(bool, false)
     wiki_page_events           = optional(bool, false)
   }))
+  ```
+
+  </div>
+  <div style="width:34%;float:right;">
+  <p style="border-bottom: 1px solid #333333;">Default</p>
+
+  ```hcl
+  {}
+  ```
+
+  </div>
+</details>
+
+##### `custom_attributes`
+
+Map of string, where the key is the key of the custom attribute and value is
+the value of the custom attribute.
+
+<details style="width: 100%;display: inline-block">
+  <summary>Type & Default</summary>
+  <div style="height: 1em"></div>
+  <div style="width:64%; float:left;">
+  <p style="border-bottom: 1px solid #333333;">Type</p>
+
+  ```hcl
+  map(string)
   ```
 
   </div>

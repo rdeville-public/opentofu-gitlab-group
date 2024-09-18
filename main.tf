@@ -125,3 +125,12 @@ resource "gitlab_group_hook" "this" {
   tag_push_events            = each.value.tag_push_events
   wiki_page_events           = each.value.wiki_page_events
 }
+
+# Manage group custom attributes
+resource "gitlab_group_custom_attribute" "this" {
+  for_each = var.custom_attributes
+
+  group = gitlab_group.this.id
+  key   = each.key
+  value = each.value
+}
