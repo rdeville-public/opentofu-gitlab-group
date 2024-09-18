@@ -550,3 +550,15 @@ variable "hooks" {
   nullable = false
   default  = {}
 }
+
+variable "custom_attributes" {
+  # Key is the key of the custom attribute
+  type        = map(string)
+  description = <<-EOM
+  Map of string, where the key is the key of the custom attribute and value is
+  the value of the custom attribute.
+  EOM
+
+  nullable = false
+  default  = {}
+}
