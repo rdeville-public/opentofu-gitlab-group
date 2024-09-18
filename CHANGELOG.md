@@ -1,6 +1,17 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.5.0 (2024-09-18)
+
+### ✨ Minor
+
+  * ✨ Add group custom attributes management (!10) by Romain Deville ([`2a27357`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/2a27357de599a6c9b44d8a56c36e8321a49c2a26))
+  * ✨ Add group custom attributes management by Romain Deville ([`0a1769d`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/0a1769d5af0503b7198f57f5da225bbd175be810)) 🔏
+
+### 🔊 Others
+
+  * 📝 Update README from tf-docs and add example by Romain Deville ([`7527656`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/7527656a6a73e5a0af6867638c5980fe9cb70df3)) 🔏
+
 ## v0.4.0 (2024-09-18)
 
 ### ✨ Minor
@@ -11,6 +22,7 @@
 ### 🔊 Others
 
   * 📝 Update README from tf-docs and add example by Romain Deville ([`a0e0637`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/a0e0637d0bcec3d19e3f25311bd93d12ecddd209)) 🔏
+  * 🔖 v0.4.0 (NO-CI) by Python Semantic Release [bot] ([`047ee8b`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/047ee8bca6a0b9e43ac9b1920561ca331deb89c5))
 
 ## v0.3.0 (2024-09-18)
 
@@ -77,19 +89,12 @@
 
 ### 🔊 Others
 
-  * 👷 Update Gitlab CI from DGS by Romain Deville ([`6aa94ae`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/6aa94ae9f860024accc0bc413078131dfc256945)) 🔏
   * 📝 Update README with Terraform Docs by Romain Deville ([`5446b89`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/5446b897947c020a58026d1dea4801122f8623ef)) 🔏
   * 🔖 v0.1.0 (NO-CI) by Python Semantic Release [bot] ([`9229574`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/92295743da1fb1241bc153f2d0fbe510e4ae841e))
   * 🔨 Update devbox json and lock from DGS by Romain Deville ([`1dd135f`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/1dd135f390aa058e8f9a2f738c946909df7a4208)) 🔏
-  * 🔨 Update pre-commit-config from DGS by Romain Deville ([`c077914`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/c077914bbc727daa419c3f6db7ba47bfdd561e42)) 🔏
   * 🙈 Add terraform.lock.hcl to gitignore by Romain Deville ([`2e94ca6`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/2e94ca66e33c2340a76c700b4c14dcd42963ec6d)) 🔏
 
 ## v0.0.1 (2024-08-20)
-
-### 🩹 Patch
-
-  * 🔧 Add semantic release config from DGS template by Romain Deville ([`43b39c7`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/43b39c702f8cb29ed67ced22a9c36addf23a0920)) 🔏
-  * 🔧 Add markdownlint config from DGS template by Romain Deville ([`a8bf10b`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/a8bf10b76f4adc11b4ef27bed59f9fb1e8884dc9)) 🔏
 
 ### 🔊 Others
 
