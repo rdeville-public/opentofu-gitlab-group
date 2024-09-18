@@ -240,6 +240,44 @@ developer access to users `2222` and `4444` and `maintainer` access to user
 `3333` until the 31th december of 2020, then user `3333` access level will be
 revoked to `developer`.
 
+### Manage Group badges
+
+```hcl
+module "gitlab_group" {
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
+
+  # Required Variables
+  settings_path        = "group-name"
+  settings_name        = "Group Name"
+  settings_description = "Group Description"
+
+  # Example value
+  badges = {
+    "Example" = {
+      link_url  = "https://example.com/badge-123"
+      image_url = "https://example.com/badge-123.svg"
+    }
+    # Below examples are directly taken from Terraform Registry and adapted for this module
+    # See: https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_badge
+    # Pipeline status badges with placeholders will be enabled for each project
+    "Pipeline" = {
+      link_url  = "https://gitlab.example.com/%%{project_path}/-/pipelines?ref=%%{default_branch}"
+      image_url = "https://gitlab.example.com/%%{project_path}/badges/%%{default_branch}/pipeline.svg"
+    }
+    # Test coverage report badges with placeholders will be enabled for each project
+    "Coverage" = {
+      link_url  = "https://gitlab.example.com/%%{project_path}/-/jobs"
+      image_url = "https://gitlab.example.com/%%{project_path}/badges/%%{default_branch}/coverage.svg"
+    }
+    # Latest release badges with placeholders will be enabled for each project
+    "Release" = {
+      link_url  = "https://gitlab.example.com/%%{project_path}/-/releases"
+      image_url = "https://gitlab.example.com/%%{project_path}/-/badges/release.svg"
+    }
+  }
+}
+```
+
 <!-- BEGIN TF-DOCS -->
 ## ⚙️ Module Content
 
@@ -267,6 +305,8 @@ revoked to `developer`.
   > Manage settings of the group.
 * [resource.gitlab_group_access_token.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_access_token)
   > Manage a group access token.
+* [resource.gitlab_group_badge.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_badge)
+  > Manage group badges
 * [resource.gitlab_group_label.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_label)
   > Manage labels of a group.
 * [resource.gitlab_group_membership.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_membership)
@@ -356,6 +396,7 @@ string
 * [variables](#variables)
 * [access_tokens](#access_tokens)
 * [membership](#membership)
+* [badges](#badges)
 
 
 ##### `settings_parent_id`
@@ -1174,6 +1215,41 @@ will be revoked to `developer`.
       unassign_issuables_on_destroy = optional(bool, true)
     })), {})
   })
+  ```
+
+  </div>
+  <div style="width:34%;float:right;">
+  <p style="border-bottom: 1px solid #333333;">Default</p>
+
+  ```hcl
+  {}
+  ```
+
+  </div>
+</details>
+
+##### `badges`
+
+Map of object, where the key is the name of the badge. Object support
+following attributes:
+
+* `image_url`: string, the image url which will be presented on group overview.
+* `link_url`: string, the url linked with the badge.
+
+For more information about `image_url` and `link_url` format, see
+[Group Badges](https://docs.gitlab.com/ee/user/project/badges.html#group-badges)
+
+<details style="width: 100%;display: inline-block">
+  <summary>Type & Default</summary>
+  <div style="height: 1em"></div>
+  <div style="width:64%; float:left;">
+  <p style="border-bottom: 1px solid #333333;">Type</p>
+
+  ```hcl
+  map(object({
+    image_url = string
+    link_url  = string
+  }))
   ```
 
   </div>
