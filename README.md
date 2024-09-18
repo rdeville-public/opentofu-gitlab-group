@@ -278,6 +278,44 @@ module "gitlab_group" {
 }
 ```
 
+### Manage Group hooks
+
+```hcl
+module "gitlab_group" {
+  source = "git::https://framagit.org/rdeville-public/terraform/module-gitlab-groups.git"
+
+  # Required Variables
+  settings_path        = "group-name"
+  settings_name        = "Group Name"
+  settings_description = "Group Description"
+
+  # Example value
+  hooks = {
+    "Example" = {
+      url                        = "https://example.tld"
+      token                      = "SecretToken"
+      # Below are default values
+      custom_webhook_template    = null
+      confidential_issues_events = false
+      confidential_note_events   = false
+      deployment_events          = false
+      enable_ssl_verification    = true
+      issues_events              = false
+      job_events                 = false
+      merge_requests_events      = false
+      note_events                = false
+      pipeline_events            = false
+      push_events                = false
+      push_events_branch_filter  = null
+      releases_events            = false
+      subgroup_events            = false
+      tag_push_events            = false
+      wiki_page_events           = false
+    }
+  }
+}
+```
+
 <!-- BEGIN TF-DOCS -->
 ## ⚙️ Module Content
 
@@ -307,6 +345,8 @@ module "gitlab_group" {
   > Manage a group access token.
 * [resource.gitlab_group_badge.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_badge)
   > Manage group badges
+* [resource.gitlab_group_hook.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_hook)
+  > Manage group hooks
 * [resource.gitlab_group_label.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_label)
   > Manage labels of a group.
 * [resource.gitlab_group_membership.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_membership)
@@ -397,6 +437,7 @@ string
 * [access_tokens](#access_tokens)
 * [membership](#membership)
 * [badges](#badges)
+* [hooks](#hooks)
 
 
 ##### `settings_parent_id`
@@ -1249,6 +1290,87 @@ For more information about `image_url` and `link_url` format, see
   map(object({
     image_url = string
     link_url  = string
+  }))
+  ```
+
+  </div>
+  <div style="width:34%;float:right;">
+  <p style="border-bottom: 1px solid #333333;">Default</p>
+
+  ```hcl
+  {}
+  ```
+
+  </div>
+</details>
+
+##### `hooks`
+
+Map of object, where key is only a human readable identifier. Object support
+following attributes:
+
+* `url`: String, the url of the hook to invoke.
+* `token`: String, optional, a token to present when invoking the hook.
+  The token is not available for imported resources. Default to `null`.
+* `confidential_issues_events`: Boolean, optional, invoke the hook for
+  confidential issues events. Default to `false`.
+* `confidential_note_events`: Boolean, optional, invoke the hook for
+  confidential notes events. Default to `false`.
+* `custom_webhook_template`: String, optional, set a custom webhook template.
+  Default to `false`.
+* `deployment_events`: Boolean, optional, invoke the hook for deployment events.
+  Default to `false`.
+* `enable_ssl_verification`: Boolean, optional, enable ssl verification when
+  invoking the hook. Default to `false`.
+* `issues_events`: Boolean, optional, invoke the hook for issues events.
+  Default to `false`.
+* `job_events`: Boolean, optional, invoke the hook for job events.
+  Default to `false`.
+* `merge_requests_events`: Boolean, optional, invoke the hook for merge
+  requests. Default to `false`.
+* `note_events`: Boolean, optional, invoke the hook for notes events.
+  Default to `false`.
+* `pipeline_events`: Boolean, optional, invoke the hook for pipeline events.
+  Default to `false`.
+* `push_events`: Boolean, optional, invoke the hook for push events.
+  Default to `false`.
+* `push_events_branch_filter`: String, optional, invoke the hook for push
+  events on matching branches only. Default to `null`.
+* `releases_events`: Boolean, optional, invoke the hook for releases events.
+  Default to `false`.
+* `subgroup_events`: Boolean, optional, invoke the hook for subgroup events.
+  Default to `false`.
+* `tag_push_events`: Boolean, optional, invoke the hook for tag push events.
+  Default to `false`.
+* `wiki_page_events`: Boolean, optional, invoke the hook for wiki page events.
+  Default to `false`.
+
+<details style="width: 100%;display: inline-block">
+  <summary>Type & Default</summary>
+  <div style="height: 1em"></div>
+  <div style="width:64%; float:left;">
+  <p style="border-bottom: 1px solid #333333;">Type</p>
+
+  ```hcl
+  map(object({
+    url                        = string
+    token                      = optional(string)
+    custom_webhook_template    = optional(string)
+    confidential_issues_events = optional(bool, false)
+    confidential_note_events   = optional(bool, false)
+    deployment_events          = optional(bool, false)
+    enable_ssl_verification    = optional(bool, true)
+    issues_events              = optional(bool, false)
+    job_events                 = optional(bool, false)
+    merge_requests_events      = optional(bool, false)
+    note_events                = optional(bool, false)
+    pipeline_events            = optional(bool, false)
+    push_events                = optional(bool, false)
+    push_events_branch_filter  = optional(string)
+    releases_events            = optional(bool, false)
+    subgroup_events            = optional(bool, false)
+    tag_push_events            = optional(bool, false)
+    wiki_page_events           = optional(bool, false)
   }))
   ```
 
