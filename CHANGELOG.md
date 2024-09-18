@@ -1,6 +1,17 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.3.0 (2024-09-18)
+
+### ✨ Minor
+
+  * ✨ Add group badges management (!8) by Romain Deville ([`997bcd1`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/997bcd1a507e90eeaad74bad9404866ba6c23d3a))
+  * ✨ Add Group badges management by Romain Deville ([`c41b0c7`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/c41b0c793cd537de4fb4d2e973fc8a6b80e1a845)) 🔏
+
+### 🔊 Others
+
+  * 📝 Update README from tf-docs and add example by Romain Deville ([`b84411e`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/b84411e353e06d356d359bff760f4a484269045a)) 🔏
+
 ## v0.2.0 (2024-09-17)
 
 ### ✨ Minor
@@ -11,6 +22,7 @@
 ### 🔊 Others
 
   * 📝 Update README from tf-docs and add examples by Romain Deville ([`3f794b4`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/3f794b46b2d6d44e1a95040b2588b51063e3fd9f)) 🔏
+  * 🔖 v0.2.0 (NO-CI) by Python Semantic Release [bot] ([`d720936`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/d7209367006d08c13189b0799562becb6ab8845c))
 
 ## v0.1.2 (2024-09-16)
 
@@ -69,7 +81,6 @@
   * 🔧 Add markdownlint config from DGS template by Romain Deville ([`a8bf10b`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/a8bf10b76f4adc11b4ef27bed59f9fb1e8884dc9)) 🔏
   * 🔧 Add commitlint config from DGS template by Romain Deville ([`74e50ae`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/74e50ae38174d1a44b987ddadfc18496799b5481)) 🔏
   * 🔧 Add cspell configuration from DGS template by Romain Deville ([`142d669`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/142d6698bab795582f2b755b8983afd9d9fcdfb3)) 🔏
-  * 🔧 Add editorconfig from DGS template by Romain Deville ([`10f824a`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/10f824aa5783e9e97aaf346d1aa191c6c370bc82)) 🔏
 
 ### 🔊 Others
 
@@ -78,7 +89,6 @@
   * 🔖 v0.0.1 (NO-CI) by Python Semantic Release [bot] ([`541d5a6`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/541d5a6c8db18394c15a565b20048df2e45b3109))
   * 🔨 Add .envrc from DGS by Romain Deville ([`4ef252e`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/4ef252e46874ba846bb3a4132b8aab36180ab897)) 🔏
   * 🔨 Add devbox config from DGS template by Romain Deville ([`a26a294`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/a26a2945117d04d075fe2472f197c9d23f4bca68)) 🔏
-  * 🔨 Add pre-commit configuration from DGS template by Romain Deville ([`86e97eb`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/86e97eb42568779891bbe7c2c71ce7160a91aa6d)) 🔏
 
 ## v0.0.0 (2024-08-19)
 
