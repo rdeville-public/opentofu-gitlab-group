@@ -90,3 +90,13 @@ resource "gitlab_group_membership" "this" {
   skip_subresources_on_destroy  = var.membership[each.value][each.key].skip_subresources_on_destroy
   unassign_issuables_on_destroy = var.membership[each.value][each.key].unassign_issuables_on_destroy
 }
+
+# Manage group badges
+resource "gitlab_group_badge" "this" {
+  for_each = var.badges
+
+  group     = gitlab_group.this.id
+  name      = each.key
+  image_url = each.value.image_url
+  link_url  = each.value.link_url
+}

@@ -457,3 +457,26 @@ variable "membership" {
   nullable = false
   default  = {}
 }
+
+# Groups badges variables
+# ------------------------------------------------------------------------
+variable "badges" {
+  # Key is the name of the badge
+  type = map(object({
+    image_url = string
+    link_url  = string
+  }))
+  description = <<-EOM
+  Map of object, where the key is the name of the badge. Object support
+  following attributes:
+
+  * `image_url`: string, the image url which will be presented on group overview.
+  * `link_url`: string, the url linked with the badge.
+
+  For more information about `image_url` and `link_url` format, see
+  [Group Badges](https://docs.gitlab.com/ee/user/project/badges.html#group-badges)
+  EOM
+
+  nullable = false
+  default  = {}
+}
