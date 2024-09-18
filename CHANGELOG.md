@@ -1,6 +1,17 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.4.0 (2024-09-18)
+
+### ✨ Minor
+
+  * ✨ Add group hooks management (!9) by Romain Deville ([`55482d0`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/55482d02a5f47232ad7ff7fda5cadb61d344db3c))
+  * ✨ Add group hooks management by Romain Deville ([`2fcebec`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/2fcebecdb5b59068b7ded9ed5cd101a8c52966af)) 🔏
+
+### 🔊 Others
+
+  * 📝 Update README from tf-docs and add example by Romain Deville ([`a0e0637`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/a0e0637d0bcec3d19e3f25311bd93d12ecddd209)) 🔏
+
 ## v0.3.0 (2024-09-18)
 
 ### ✨ Minor
@@ -11,6 +22,7 @@
 ### 🔊 Others
 
   * 📝 Update README from tf-docs and add example by Romain Deville ([`b84411e`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/b84411e353e06d356d359bff760f4a484269045a)) 🔏
+  * 🔖 v0.3.0 (NO-CI) by Python Semantic Release [bot] ([`c37aff5`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/c37aff58258964ebd3df97a397d02b6f6e5fba99))
 
 ## v0.2.0 (2024-09-17)
 
@@ -61,7 +73,6 @@
 
 ### 🩹 Patch
 
-  * ✏️ Fix typo in AUTHORS by Romain Deville ([`7372ca9`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/7372ca97e832262d1467945f0ffca74906966e97)) 🔏
   * 🔧 Add .terraform-docs.yml from DGS template by Romain Deville ([`22fb504`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/22fb50410cb0ed49345bc2e10f8a71c3d7ea31b4)) 🔏
 
 ### 🔊 Others
@@ -79,8 +90,6 @@
 
   * 🔧 Add semantic release config from DGS template by Romain Deville ([`43b39c7`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/43b39c702f8cb29ed67ced22a9c36addf23a0920)) 🔏
   * 🔧 Add markdownlint config from DGS template by Romain Deville ([`a8bf10b`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/a8bf10b76f4adc11b4ef27bed59f9fb1e8884dc9)) 🔏
-  * 🔧 Add commitlint config from DGS template by Romain Deville ([`74e50ae`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/74e50ae38174d1a44b987ddadfc18496799b5481)) 🔏
-  * 🔧 Add cspell configuration from DGS template by Romain Deville ([`142d669`](https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commit/142d6698bab795582f2b755b8983afd9d9fcdfb3)) 🔏
 
 ### 🔊 Others
 
