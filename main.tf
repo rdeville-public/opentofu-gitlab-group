@@ -5,10 +5,10 @@ resource "gitlab_group" "this" {
   description = var.settings_description
   parent_id   = var.settings_parent_id
 
-  auto_devops_enabled               = var.settings_auto_devops_enabled
-  avatar                            = var.settings_avatar
-  avatar_hash                       = filesha256(var.settings_avatar)
-  default_branch_protection         = var.settings_default_branch_protection
+  auto_devops_enabled = var.settings_auto_devops_enabled
+  avatar              = var.settings_avatar
+  avatar_hash         = var.settings_avatar != null ? filesha256(var.settings_avatar) : null
+  # default_branch_protection         = var.settings_default_branch_protection
   emails_enabled                    = var.settings_emails_enabled
   lfs_enabled                       = var.settings_lfs_enabled
   ip_restriction_ranges             = var.settings_ip_restriction_ranges
@@ -27,7 +27,7 @@ resource "gitlab_group" "this" {
   wiki_access_level                 = var.settings_wiki_access_level
 
   dynamic "push_rules" {
-    for_each = var.settings_push_rules
+    for_each = var.settings_push_rules != null ? var.settings_push_rules : {}
 
     content {
       branch_name_regex       = push_rules.value.branch_name_regex
