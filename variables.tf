@@ -37,13 +37,13 @@ variable "settings_avatar" {
   default = null
 }
 
-variable "settings_default_branch_protection" {
-  type        = number
-  description = "See https://docs.gitlab.com/ee/api/groups.html#options-for-default_branch_protection."
-
-  nullable = false
-  default  = 4
-}
+# variable "settings_default_branch_protection" {
+#   type        = number
+#   description = "See https://docs.gitlab.com/ee/api/groups.html#options-for-default_branch_protection."
+#
+#   nullable = false
+#   default  = 4
+# }
 
 variable "settings_emails_enabled" {
   type        = bool
@@ -179,8 +179,7 @@ variable "settings_wiki_access_level" {
   type        = string
   description = "The group's wiki access level. Only available on Premium and Ultimate plans. Valid values are disabled, private, enabled."
 
-  nullable = false
-  default  = "disabled"
+  default = null
 }
 
 variable "settings_push_rules" {
@@ -226,8 +225,7 @@ variable "settings_push_rules" {
 
   EOM
 
-  nullable = false
-  default  = {}
+  default = null
 }
 
 # Groups labels variables
