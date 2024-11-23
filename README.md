@@ -353,26 +353,26 @@ module "gitlab_group" {
 
 * [opentofu](https://opentofu.org/docs/):
   `>= 1.8, < 2.0`
-* [gitlab](https://registry.terraform.io/providers/gitlabhq/gitlab/):
+* [gitlab](https://registry.terraform.io/providers/opentofu/gitlab/):
   `~>17.0`
 
 ### Resources
 
-* [resource.gitlab_group.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group)
+* [resource.gitlab_group.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group)
   > Manage settings of the group.
-* [resource.gitlab_group_access_token.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_access_token)
+* [resource.gitlab_group_access_token.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_access_token)
   > Manage a group access token.
-* [resource.gitlab_group_badge.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_badge)
+* [resource.gitlab_group_badge.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_badge)
   > Manage group badges
-* [resource.gitlab_group_custom_attribute.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_custom_attribute)
+* [resource.gitlab_group_custom_attribute.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_custom_attribute)
   > Manage group custom attributes
-* [resource.gitlab_group_hook.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_hook)
+* [resource.gitlab_group_hook.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_hook)
   > Manage group hooks
-* [resource.gitlab_group_label.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_label)
+* [resource.gitlab_group_label.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_label)
   > Manage labels of a group.
-* [resource.gitlab_group_membership.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_membership)
+* [resource.gitlab_group_membership.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_membership)
   > Manage group membership
-* [resource.gitlab_group_variable.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_variable)
+* [resource.gitlab_group_variable.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_variable)
   > Manage CI/CD variable for a group.
 
 <!-- markdownlint-capture -->
@@ -435,7 +435,6 @@ string
 * [settings_parent_id](#settings_parent_id)
 * [settings_auto_devops_enabled](#settings_auto_devops_enabled)
 * [settings_avatar](#settings_avatar)
-* [settings_default_branch_protection](#settings_default_branch_protection)
 * [settings_emails_enabled](#settings_emails_enabled)
 * [settings_ip_restriction_ranges](#settings_ip_restriction_ranges)
 * [settings_lfs_enabled](#settings_lfs_enabled)
@@ -529,30 +528,6 @@ A local path to the avatar image to upload.
 
   ```hcl
   null
-  ```
-
-  </div>
-</details>
-
-##### `settings_default_branch_protection`
-
-See https://docs.gitlab.com/ee/api/groups.html#options-for-default_branch_protection.
-<details style="width: 100%;display: inline-block">
-  <summary>Type & Default</summary>
-  <div style="height: 1em"></div>
-  <div style="width:64%; float:left;">
-  <p style="border-bottom: 1px solid #333333;">Type</p>
-
-  ```hcl
-  number
-  ```
-
-  </div>
-  <div style="width:34%;float:right;">
-  <p style="border-bottom: 1px solid #333333;">Default</p>
-
-  ```hcl
-  4
   ```
 
   </div>
@@ -944,7 +919,7 @@ The group's wiki access level. Only available on Premium and Ultimate plans. Val
   <p style="border-bottom: 1px solid #333333;">Default</p>
 
   ```hcl
-  disabled
+  null
   ```
 
   </div>
@@ -1006,7 +981,7 @@ Object describing push rules with following structure:
   <p style="border-bottom: 1px solid #333333;">Default</p>
 
   ```hcl
-  {}
+  null
   ```
 
   </div>
@@ -1436,10 +1411,14 @@ the value of the custom attribute.
 
 ### Outputs
 
-* `group_id`:
+* `id`:
   The generated group ID
-* `group_name`:
+* `name`:
   The group name
+* `path`:
+  The group path
+* `full_path`:
+  The group path
 
 </details>
 
