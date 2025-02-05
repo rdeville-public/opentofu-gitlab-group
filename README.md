@@ -354,7 +354,7 @@ module "gitlab_group" {
 
 * [opentofu](https://opentofu.org/docs/):
   `>= 1.8, < 2.0`
-* [gitlab](https://registry.terraform.io/providers/opentofu/gitlab/):
+* [gitlab](https://search.opentofu.org/provider/opentofu/gitlab/):
   `~>17.0`
 
 ### Resources
