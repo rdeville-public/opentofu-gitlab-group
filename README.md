@@ -1,11 +1,12 @@
 <!-- BEGIN DOTGIT-SYNC BLOCK MANAGED -->
+<!-- markdownlint-disable -->
 # 👋 Welcome to OpenTofu Module Gitlab Groups
 
 <center>
 
 > ⚠️ IMPORTANT !
 >
-> Main repo is on [framagit.org](https://framagit.org/rdeville-public/terraform/module-gitlab-groups).
+> Main repo is on [framagit.org](https://framagit.org/rdeville-public/opentofu/gitlab-groups).
 >
 > On other online git platforms, they are just mirror of the main repo.
 >
@@ -25,12 +26,12 @@
 
 </center>
 
-[build_badge]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/badges/main/pipeline.svg
-[build_badge_url]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/commits/main
-[release_badge]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/badges/release.svg
-[release_badge_url]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/releases/
+[build_badge]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/badges/main/pipeline.svg
+[build_badge_url]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/-/commits/main
+[release_badge]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/-/badges/release.svg
+[release_badge_url]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/-/releases/
 [license_badge]: https://img.shields.io/badge/Licenses-MIT%20OR%20BEERWARE-blue
-[license_url]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/blob/main/LICENSE
+[license_url]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/blob/main/LICENSE
 [changelog_badge]: https://img.shields.io/badge/Changelog-Python%20Semantic%20Release-yellow
 [changelog_badge_url]: https://github.com/python-semantic-release/python-semantic-release
 
@@ -353,7 +354,7 @@ module "gitlab_group" {
 
 * [opentofu](https://opentofu.org/docs/):
   `>= 1.8, < 2.0`
-* [gitlab](https://registry.terraform.io/providers/opentofu/gitlab/):
+* [gitlab](https://search.opentofu.org/provider/opentofu/gitlab/):
   `~>17.0`
 
 ### Resources
@@ -1432,8 +1433,8 @@ Feel free to check [issues page][issues_pages].
 
 You can also take a look at the [CONTRIBUTING.md][contributing].
 
-[issues_pages]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/-/issues
-[contributing]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/blob/main/CONTRIBUTING.md
+[issues_pages]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/-/issues
+[contributing]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/blob/main/CONTRIBUTING.md
 
 ## 👤 Maintainers
 
@@ -1445,13 +1446,14 @@ You can also take a look at the [CONTRIBUTING.md][contributing].
 
 ## 📝 License
 
-Copyright © 2024 [Romain Deville](code@romaindeville.fr)
+Copyright © 2024 - 2025
+ * [Romain Deville \<code@romaindeville.fr\>](code@romaindeville.fr)
 
 This project is under following licenses (**OR**) :
 
 * [MIT][main_license]
 * [BEERWARE][beerware_license]
 
-[main_license]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/blob/main/LICENSE
-[beerware_license]: https://framagit.org/rdeville-public/terraform/module-gitlab-groups/blob/main/LICENSE.BEERWARE
+[main_license]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/blob/main/LICENSE
+[beerware_license]: https://framagit.org/rdeville-public/opentofu/gitlab-groups/blob/main/LICENSE.BEERWARE
 <!-- END DOTGIT-SYNC BLOCK MANAGED -->
