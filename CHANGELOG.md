@@ -1,6 +1,21 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.5.2 (2025-02-08)
+
+### 🩹 Patch
+
+  * ➕ Update provider from opentofu/github to integrations/github (!13) by Romain Deville ([`4fe6fe0`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/4fe6fe010db4f6981612a5d09eea8f88acf59310))
+  * ➕ Update provider from opentofu/github to integrations/github by Romain Deville ([`4a55d5c`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/4a55d5c1517388ddf68dd05f539215ce1b040a46)) 🔏
+  * ⬆️ Update templated files from dotgit-sync (!11) by Romain Deville ([`7a9be99`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/7a9be99f243dc42f536dc2c9b66fbe9f046cf75a))
+  * ⬆️ Update dotgit files from DGS Templates by Romain Deville ([`40336c6`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/40336c66a067e50dcdc07fc56bf2c69743cdc982)) 🔏
+  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`d267f33`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/d267f33d93a9295f40bdc1fc5fdb5b777048154b)) 🔏
+
+### 🔊 Others
+
+  * 📝 Update README from tf-docs by Romain Deville ([`c6f7fef`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/c6f7fef8b0a06f30c7c866bf743b630e6b83223d)) 🔏
+  * 📝 Update README from tf-docs by Romain Deville ([`c723729`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/c7237290769119f0f628d1adfe86d4ad403a9687)) 🔏
+
 ## v0.5.1 (2025-01-03)
 
 ### 🩹 Patch
@@ -24,7 +39,6 @@
 ### 🔊 Others
 
   * 📝 Update README from tf-docs and add example by Romain Deville ([`7527656`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/7527656a6a73e5a0af6867638c5980fe9cb70df3)) 🔏
-  * 🔖 v0.5.0 (NO-CI) by Python Semantic Release [bot] ([`6894e2e`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/6894e2ef47465e3dcc17c15c80100663e7dd9c17))
 
 ## v0.4.0 (2024-09-18)
 
@@ -36,7 +50,6 @@
 ### 🔊 Others
 
   * 📝 Update README from tf-docs and add example by Romain Deville ([`a0e0637`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/a0e0637d0bcec3d19e3f25311bd93d12ecddd209)) 🔏
-  * 🔖 v0.4.0 (NO-CI) by Python Semantic Release [bot] ([`047ee8b`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/047ee8bca6a0b9e43ac9b1920561ca331deb89c5))
 
 ## v0.3.0 (2024-09-18)
 
@@ -48,7 +61,6 @@
 ### 🔊 Others
 
   * 📝 Update README from tf-docs and add example by Romain Deville ([`b84411e`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/b84411e353e06d356d359bff760f4a484269045a)) 🔏
-  * 🔖 v0.3.0 (NO-CI) by Python Semantic Release [bot] ([`c37aff5`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/c37aff58258964ebd3df97a397d02b6f6e5fba99))
 
 ## v0.2.0 (2024-09-17)
 
@@ -60,7 +72,6 @@
 ### 🔊 Others
 
   * 📝 Update README from tf-docs and add examples by Romain Deville ([`3f794b4`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/3f794b46b2d6d44e1a95040b2588b51063e3fd9f)) 🔏
-  * 🔖 v0.2.0 (NO-CI) by Python Semantic Release [bot] ([`d720936`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/d7209367006d08c13189b0799562becb6ab8845c))
 
 ## v0.1.2 (2024-09-16)
 
@@ -72,7 +83,6 @@
 ### 🔊 Others
 
   * 📝 Update README from tf-docs and add more examples by Romain Deville ([`94ba867`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/94ba8679e9b8475cb2f1368223baf020a5902181)) 🔏
-  * 🔖 v0.1.2 (NO-CI) by Python Semantic Release [bot] ([`3a4d2c8`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/3a4d2c881ff45d6fa4e47af803ef4957f53d54ba))
 
 ## v0.1.1 (2024-09-09)
 
@@ -88,7 +98,6 @@
   * 💚 Fix CI from DGS Template (!3) by Romain Deville ([`6bda518`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/6bda5182dcc6a77f85656f8459ec2482bd8a11f7))
   * 💚 Fix CI from DGS Template by Romain Deville ([`9e4f674`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/9e4f6741b2225afb9eb1c2047407cf1908d2f882)) 🔏
   * 📝 Update README from tf-docs by Romain Deville ([`f247c87`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/f247c87454a0e7f7efc79b03a278c77d59fcf378)) 🔏
-  * 🔖 v0.1.1 (NO-CI) by Python Semantic Release [bot] ([`39a3306`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/39a33068e33239fa26b492806fbb6497ef0be807))
 
 ## v0.1.0 (2024-08-25)
 
@@ -106,7 +115,6 @@
 
   * 👷 Update Gitlab CI from DGS by Romain Deville ([`6aa94ae`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/6aa94ae9f860024accc0bc413078131dfc256945)) 🔏
   * 📝 Update README with Terraform Docs by Romain Deville ([`5446b89`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/5446b897947c020a58026d1dea4801122f8623ef)) 🔏
-  * 🔖 v0.1.0 (NO-CI) by Python Semantic Release [bot] ([`9229574`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/92295743da1fb1241bc153f2d0fbe510e4ae841e))
   * 🔨 Update devbox json and lock from DGS by Romain Deville ([`1dd135f`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/1dd135f390aa058e8f9a2f738c946909df7a4208)) 🔏
   * 🔨 Update pre-commit-config from DGS by Romain Deville ([`c077914`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/c077914bbc727daa419c3f6db7ba47bfdd561e42)) 🔏
   * 🙈 Add terraform.lock.hcl to gitignore by Romain Deville ([`2e94ca6`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/2e94ca66e33c2340a76c700b4c14dcd42963ec6d)) 🔏
@@ -129,7 +137,6 @@
   * 📄 Update licenses from DGS by Romain Deville ([`337574d`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/337574de6a4ca757f8a06701f14a8d18d72c6a23)) 🔏
   * 📝 Add CODE_OF_CONDUCT from DGS by Romain Deville ([`ecb6ca0`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/ecb6ca010b67c08a2579068498536f1a119da271)) 🔏
   * 📝 Update README from DGS by Romain Deville ([`6c2e09b`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/6c2e09b94955bdc3c8cb19a6e8c497c12ada7f73)) 🔏
-  * 🔖 v0.0.1 (NO-CI) by Python Semantic Release [bot] ([`541d5a6`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/541d5a6c8db18394c15a565b20048df2e45b3109))
   * 🔨 Add .envrc from DGS by Romain Deville ([`4ef252e`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/4ef252e46874ba846bb3a4132b8aab36180ab897)) 🔏
   * 🔨 Add devbox config from DGS template by Romain Deville ([`a26a294`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/a26a2945117d04d075fe2472f197c9d23f4bca68)) 🔏
   * 🔨 Add pre-commit configuration from DGS template by Romain Deville ([`86e97eb`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/86e97eb42568779891bbe7c2c71ce7160a91aa6d)) 🔏
