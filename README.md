@@ -354,26 +354,26 @@ module "gitlab_group" {
 
 * [opentofu](https://opentofu.org/docs/):
   `>= 1.8, < 2.0`
-* [gitlab](https://search.opentofu.org/provider/opentofu/gitlab/):
+* [gitlab](https://search.opentofu.org/provider/gitlabhq/gitlab/):
   `~>17.0`
 
 ### Resources
 
-* [resource.gitlab_group.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group)
+* [resource.gitlab_group.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group)
   > Manage settings of the group.
-* [resource.gitlab_group_access_token.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_access_token)
+* [resource.gitlab_group_access_token.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_access_token)
   > Manage a group access token.
-* [resource.gitlab_group_badge.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_badge)
+* [resource.gitlab_group_badge.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_badge)
   > Manage group badges
-* [resource.gitlab_group_custom_attribute.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_custom_attribute)
+* [resource.gitlab_group_custom_attribute.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_custom_attribute)
   > Manage group custom attributes
-* [resource.gitlab_group_hook.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_hook)
+* [resource.gitlab_group_hook.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_hook)
   > Manage group hooks
-* [resource.gitlab_group_label.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_label)
+* [resource.gitlab_group_label.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_label)
   > Manage labels of a group.
-* [resource.gitlab_group_membership.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_membership)
+* [resource.gitlab_group_membership.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_membership)
   > Manage group membership
-* [resource.gitlab_group_variable.this](https://registry.terraform.io/providers/opentofu/gitlab/latest/docs/resources/group_variable)
+* [resource.gitlab_group_variable.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/group_variable)
   > Manage CI/CD variable for a group.
 
 <!-- markdownlint-capture -->
