@@ -1,6 +1,17 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.5.3 (2025-08-27)
+
+### 🩹 Patch
+
+  * ⬆️ Bump provider constraint to ~&gt;18.0 (!15) by Romain Deville ([`1bc3057`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/1bc3057d03b6ff905386e3c05d71fbcf2117596b))
+  * ⬆️ Bump provider constraint to ~&gt;18.0 by Romain Deville ([`1eb7941`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/1eb79416ceeac12eb30042cb0fa2f324b61fa1f2)) 🔏
+
+### 🔊 Others
+
+  * 📝 Update README by Romain Deville ([`2492bfa`](https://framagit.org/rdeville-public/opentofu/gitlab-group/-/commit/2492bfa774abedb4941e1d8a83b16d294a20030d)) 🔏
+
 ## v0.5.2 (2025-02-08)
 
 ### 🩹 Patch
