@@ -355,7 +355,7 @@ module "gitlab_group" {
 * [opentofu](https://opentofu.org/docs/):
   `>= 1.8, < 2.0`
 * [gitlab](https://search.opentofu.org/provider/gitlabhq/gitlab/):
-  `~>17.0`
+  `~>18.0`
 
 ### Resources
 
